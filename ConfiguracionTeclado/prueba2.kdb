@@ -1,0 +1,88 @@
+;; (defcfg
+;;   linux-dev /dev/input/by-path/platform-i8043-serio-0-event-kbd
+;; )
+
+(defsrc
+  esc  1    2    3    4    5    6    7    8    9    0    -    =    bspc   del
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \    end
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret   pgup
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft   up   pgdn
+  lctl lmet lalt          spc       ralt   rmet  rctl   left down right 
+)
+(defvar
+  tap-timeout 0
+  hold-timeout 200
+)
+
+(defalias
+  num (layer-toggle num)
+  all C-a
+  tabct (tap-hold 100 200 tab lctl)
+  nav (layer-toggle nav)
+  game (layer-switch game)
+  sym (layer-toggle sym)
+  base (layer-switch base)
+  cec (tap-hold 100 200 esc @sym)
+  super (tap-hold 100 300 spc lmet)
+  tx (tap-hold 100 200 @all @num)
+)
+
+
+
+
+(deflayer base
+  esc  1    2    3    4    5    XX    XX    XX    6    7    -    =    bspc   @game
+  @tabct q    w    e    r    t    XX    XX    XX    y    u    i    o    p    end
+  @cec a    s    d    f    g    XX    XX    XX    h    j    k    l   pgup
+  lsft z    x    c    v    b    XX    XX    XX    n    m    rsft   up   pgdn
+  lctl lmet @nav          @tx       @super   rmet  rctl left down right 
+)
+
+
+(deflayer num
+  XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+  XX    S-1   S-2   S-3   S-4   S-5   XX    XX    XX    S-6   S-7   S-8   0     0    XX
+  XX    1     2     3     4     5     XX    XX    XX    6     7     8     9     XX
+  XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+  XX    XX    XX           XX   XX    XX    XX    XX    XX    XX
+)
+
+(deflayer nav
+  esc  XX    XX    XX    XX   XX    XX    XX    XX    XX    XX    XX    XX    @base   del
+  tab  XX    XX    XX    XX   XX    XX    XX    XX    XX    XX    XX    XX     XX    end
+  @cec XX    XX    XX    XX   lctl  XX    XX    XX    left    down    up    right   pgup
+  lsft XX    XX    XX    XX   XX    XX    XX    XX    XX    XX    XX    XX XX
+  lctl lmet lalt          @tx       spc   rmet  rctl XX XX XX
+)
+(deflayer game
+  esc  1    2    3    4    5    XX    XX    XX    6    7    -    =    @base   del
+  tab  q    w    e    r    t    XX    XX    XX    y    u    i    o    p    end
+  @cec a    s    d    f    g    XX    XX    XX    h    j    k    l   pgup
+  lsft z    x    c    v    b    XX    XX    XX    n    m    rsft   up   pgdn
+  lctl lmet lalt          @tx       spc   rmet  rctl XX XX XX
+)
+
+
+(deflayer sym 
+  XX    XX    XX    XX     XX   XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+  XX    XX    XX    -      =    XX    XX    XX    XX    S-9   S-0    [     ]    \  XX
+  XX    XX    XX    XX     XX   XX    XX    XX    XX    grv   ;     '     ret   XX
+  XX    XX    XX    XX     XX   XX    XX    XX    XX    ,    .    /    XX    XX
+  XX    XX    XX              XX         rsft    XX    XX XX XX XX  
+)
+
+(deflayer disable
+  XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+  XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+  XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+  XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+  XX    XX    XX              XX         XX    XX    XX XX XX XX
+)
+
+(deflayer empty
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _  _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _  _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _              _         _    _    _    _ _ _
+)
