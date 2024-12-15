@@ -7,4 +7,5 @@ vim.api.nvim_create_autocmd("VimLeave", {
 })
 
 vim.g.neo_tree_disable_restore = true
+vim.cmd("colorscheme tokyonight-night")
 
