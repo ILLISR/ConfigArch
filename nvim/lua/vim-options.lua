@@ -6,13 +6,11 @@ vim.cmd("set shiftwidth=2")
 
 -- Mapleader
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>m", ":tabn <CR>")
-vim.keymap.set("n", "<leader>n", ":tabp <CR>")
-vim.keymap.set("n", "<leader>c", ":tabc <CR>")
-vim.keymap.set("n", "<leader>q", ":q <CR>")
-vim.keymap.set("n", "<leader>.", ":q! <CR>")
-vim.keymap.set("n", "<leader>W", ":w <CR>")
--- Moverse 10 líneas hacia abajo y hacia arriba con Alt + j y Alt + k
+--vim.keymap.set("n", "<leader>m", ":tabn <CR>")
+--vim.keymap.set("n", "<leader>n", ":tabp <CR>")
+--vim.keymap.set("n", "<leader>c", ":tabc <CR>")
+vim.keymap.set("n", "<leader>wg", ":w <CR>")
+-- Moverse 10 líneas hacia abajo yg hacia arriba con Alt + j y Alt + k
 vim.keymap.set("n", "<M-down>", "10j", { noremap = true, silent = true })
 vim.keymap.set("n", "<M-up>", "10k", { noremap = true, silent = true })
 
@@ -20,11 +18,11 @@ vim.keymap.set("n", "<M-up>", "10k", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "<Space>y", '"+y', { noremap = true, silent = true })
 -- Configuración de estilos de texto
 -- Aplica negrita e itálico a los comentarios
-vim.cmd("highlight Comment cterm=italic gui=italic")
+-- vim.cmd("higghlight Comment cterm=italic gui=italic")
 -- Aplica negrita a los números
-vim.cmd("highlight Number cterm=bold gui=bold")
+-- vim.cmd("highlight Number cterm=bold gui=bold")
 -- Aplica negrita a los identificadores de variables
-vim.cmd("highlight Identifier cterm=bold gui=bold")
+--vim.cmd("highlight Identifier cterm=bold gui=bold")
 
 -- Activar numeros relativos de las lineas
 vim.opt.relativenumber = true
