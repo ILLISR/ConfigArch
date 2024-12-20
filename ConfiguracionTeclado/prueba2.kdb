@@ -17,7 +17,11 @@
 (defalias
   navSys (layer-toggle navSys)
   all C-a
-  flctl (tap-hold 100 200 f lctl)
+  rlctl (tap-hold 100 200 r lctl)
+  ylctl (tap-hold 100 200 y rctl)
+  vlmet (tap-hold 100 200 v lmet)
+  rrmet (tap-hold 100 200 n rmet)
+  flalt (tap-hold 100 200 f lalt)
   arrowKeys (layer-toggle arrowKeys)
   game (layer-switch game)
   sym (layer-toggle sym)
@@ -30,28 +34,27 @@
 
 
 (deflayer base
-  XX  1    2    3    4    5    XX    XX    XX    6    7    -    =    bspc   XX
-  tab  q    w    e    r    t    XX    XX  lctl  y    u    i    o    p    end
-  @sym a    s    d    f    g    XX    XX     esc    h    j    k    l   pgup
-  lsft z    x    c    v    b    XX    XX    rmet n    m    XX  XX   pgdn
-  XX XX XX          @navSys       spc   XX  XX left down right 
+  XX  XX    XX  XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX   XX
+  tab  q    w    e    @rlctl    t  XX    XX  @ylctl  u    i    o    p    rctl    XX
+  @sym a    s    d    @flalt    g    XX    XX     h    j    k    l    esc   XX
+  lsft z    x    c    @vlmet    b XX    XX    @rrmet    m    rmet    XX  XX   XX
+  XX  XX XX          @navSys       spc   rsft  XX XX XX XX 
 )
 
 
 (deflayer navSys
-  XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    bspc    XX
-  XX    q    XX    lsft    lalt    XX   XX    XX    XX    7   8   9   0    XX    XX
-  XX    @all  XX   @arrowKeys  lmet    XX    XX    XX    XX    4     5     6     XX     XX
-  XX    XX    XX    XX    XX    XX    XX    XX    XX    1    2    3  XX    XX
+  XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX   XX    XX    XX
+  XX    XX    XX    XX    XX    XX   XX    XX    4    5   6   bspc   XX    XX    XX
+  XX    XX    XX   @arrowKeys  lsft    XX    XX    XX   1    2     3     0     XX     XX
+  XX    XX    XX    XX    XX    XX    XX    XX    7    8    9    XX  XX    XX
   XX    XX    XX           XX   spc    XX    XX    XX    XX    XX
 )
-
 (deflayer arrowKeys
-  XX  XX    XX    XX    XX   XX    XX    XX    XX    XX    XX    XX    XX    XX   del
-  XX  XX    XX    XX   lalt   lctl    XX    XX    XX    XX    XX    XX    XX     XX    end
-  XX XX    XX    XX    lmet   XX  XX    XX    XX    left    down    up    right   pgup
-  XX XX    XX    XX    XX   XX    XX    XX    XX    XX    XX    XX    XX XX
-  XX XX  XX         XX       spc   XX  XX XX XX XX
+  XX  XX    XX    XX    XX   XX    XX    XX    XX    XX    XX    XX    XX    XX   XX
+  XX  XX    XX    XX   XX   XX    XX    XX    XX    XX    XX    XX    XX     XX    XX
+  XX  XX    XX    XX    lctl   XX  XX    XX    left   down  up    right    XX   XX  
+  XX  XX    XX    XX    XX   XX    XX    XX    XX    XX    XX    XX    XX XX
+  XX  XX  XX         XX       spc   XX  XX XX XX XX
 )
 (deflayer game
   esc  1    2    3    4    5    XX    XX    XX    6    7    -    =    @base   del
@@ -63,10 +66,10 @@
 
 
 (deflayer sym 
-  XX    XX    XX    XX     XX   XX    XX    XX    XX    XX    XX    XX    XX    bspc    XX
-  XX    XX    XX    -      =    XX    XX    XX    XX    S-9   S-0    [     ]    \  XX
-  XX    XX    XX    XX     XX   XX    XX    XX    XX    grv   ;     '     ret   XX
-  XX    XX    XX    XX     XX   XX    XX    XX    XX    ,    .    /    XX    XX
+  XX    XX    XX    XX     XX   XX    XX    XX    XX    XX    XX    XX    bspc    XX    XX
+  XX    XX    XX    -      =    XX    XX    XX    S-9   [  \  S-0    ] XX XX    
+  XX    XX    XX    ,      .   XX    XX    XX    ;   '     grv     ret   XX XX    
+  XX    XX    XX    XX     XX   XX    XX    XX   /    XX   XX    XX    XX XX    
   XX    XX    XX              XX         rsft    XX    XX XX XX XX  
 )
 
@@ -84,4 +87,4 @@
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _              _         _    _    _    _ _ _
-)
+) 
