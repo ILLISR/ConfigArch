@@ -7,10 +7,10 @@
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \    end
   caps a    s    d    f    g    h    j    k    l    ;    '    ret   pgup
   lsft z    x    c    v    b    n    m    ,    .    /    rsft   up   pgdn
-  lctl lmet lalt          spc       ralt   rmet  rctl   left down right 
+  lctl lmet lalt          spc       ralt   comp  rctl   left down right 
 )
 (defvar
-  tap-timeout 0
+  tap-timeout 0f
   hold-timeout 200
 )
 
@@ -20,7 +20,10 @@
   rlctl (tap-hold 100 200 r lctl)
   ylctl (tap-hold 100 200 y rctl)
   vlmet (tap-hold 100 200 v lmet)
-  rrmet (tap-hold 100 200 n rmet)
+  nrmet (tap-hold 100 200 n rmet)
+  glsft (tap-hold 100 200 g lsft)
+  hesc (tap-hold 100 200 h esc)
+  qtab (tap-hold 100 200 tab q)
   flalt (tap-hold 100 200 f lalt)
   arrowKeys (layer-toggle arrowKeys)
   game (layer-switch game)
@@ -28,31 +31,32 @@
   base (layer-switch base)
   desc (tap-hold 100 200 d esc)
   super (tap-hold 100 300 g lmet)
+  asym (tap-hold 100 200 a @sym)
 )
 
 
 
 
 (deflayer base
-  XX  XX    XX  XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX   XX
-  tab  q    w    e    @rlctl    t  XX    XX  @ylctl  u    i    o    p    rctl    XX
-  @sym a    s    d    @flalt    g    XX    XX     h    j    k    l    esc   XX
-  lsft z    x    c    @vlmet    b XX    XX    @rrmet    m    rmet    XX  XX   XX
-  XX  XX XX          @navSys       spc   rsft  XX XX XX XX 
+  XX  XX    XX  XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX   @game
+  XX   q    w    e    @rlctl    t  XX   XX XX  @ylctl  u    i    o    p        XX
+  XX   @asym    s      d   @flalt    g    XX    XX   XX  h    j    k    l       XX
+  lsft z    x    c    @vlmet    b XX    XX   XX    @nrmet    m    XX      XX   XX
+  XX  XX XX          @navSys       spc   XX  XX XX XX XX 
 )
 
 
 (deflayer navSys
   XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX   XX    XX    XX
-  XX    XX    XX    XX    XX    XX   XX    XX    4    5   6   bspc   XX    XX    XX
-  XX    XX    XX   @arrowKeys  lsft    XX    XX    XX   1    2     3     0     XX     XX
-  XX    XX    XX    XX    XX    XX    XX    XX    7    8    9    XX  XX    XX
+  XX    tab    XX    esc    XX    XX   XX    XX   XX 4    5   6   bspc       XX    XX
+  XX    XX    XX   @arrowKeys  lsft    XX    XX    XX   XX  1    2     3     0          XX
+  XX    XX    XX    XX    XX    XX    XX    XX   XX  7    8    9    XX  XX    
   XX    XX    XX           XX   spc    XX    XX    XX    XX    XX
 )
 (deflayer arrowKeys
   XX  XX    XX    XX    XX   XX    XX    XX    XX    XX    XX    XX    XX    XX   XX
   XX  XX    XX    XX   XX   XX    XX    XX    XX    XX    XX    XX    XX     XX    XX
-  XX  XX    XX    XX    lctl   XX  XX    XX    left   down  up    right    XX   XX  
+  XX  XX    XX    XX    lctl   XX  XX    XX   XX    left   down  up    right       XX  
   XX  XX    XX    XX    XX   XX    XX    XX    XX    XX    XX    XX    XX XX
   XX  XX  XX         XX       spc   XX  XX XX XX XX
 )
@@ -67,9 +71,9 @@
 
 (deflayer sym 
   XX    XX    XX    XX     XX   XX    XX    XX    XX    XX    XX    XX    bspc    XX    XX
-  XX    XX    XX    -      =    XX    XX    XX    S-9   [  \  S-0    ] XX XX    
-  XX    XX    XX    ,      .   XX    XX    XX    ;   '     grv     ret   XX XX    
-  XX    XX    XX    XX     XX   XX    XX    XX   /    XX   XX    XX    XX XX    
+  XX    XX    XX    -      =    XX    XX    XX   XX S-9   [  \  S-0    ]  XX    
+  XX    XX    XX    ,      .   XX    XX    XX   XX  ;   '     grv     ret    XX    
+  XX    XX    XX    XX     XX   XX    XX   XX XX   /    XX   XX    XX    XX     
   XX    XX    XX              XX         rsft    XX    XX XX XX XX  
 )
 
