@@ -1,11 +1,4 @@
-require("vim-options")
+-- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
-vim.lsp.set_log_level("debug")
--- Auto guardar la sesión al salir
-vim.api.nvim_create_autocmd("VimLeave", {
-    command = "mksession! ~/.config/nvim/sessions/default.vim"
-})
-
-vim.g.neo_tree_disable_restore = true
-vim.cmd("colorscheme tokyonight-night")
-
+vim.opt.timeoutlen = 1000
+vim.opt.ttimeoutlen = 0
